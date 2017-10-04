@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form  [formGroup]="loginForm"  (ngSubmit)="LoginUser(loginForm.value)" >
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input  [ngClass]="{'has-error':!loginForm.controls['email'].valid}" class="form-control" type="email" name ="email" [(ngModel)]="email"  [formControl]="loginForm.controls['email']" required></ion-input>
+
+        <div class="alert alert-danger" *ngIf="!loginForm.controls['email'].valid">required.</div>
+
+     </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" [ngClass]="{'has-error':!loginForm.controls['password'].valid}" name="password" [(ngModel)]="password" [formControl]="loginForm.controls['password']" required></ion-input>
+        <div class="alert alert-danger" *ngIf="!loginForm.controls['password'].valid">required.</div>
+
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button full  [disabled]="!loginForm.valid">Login</button>
+    </div>
+  </form>
+  <div padding>
+    <button (click)="redirect()" ion-button  >Sign Up</button>
+  </div>
+
+</ion-content>

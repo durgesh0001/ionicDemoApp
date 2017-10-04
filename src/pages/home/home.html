@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Registration</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <form [formGroup]="signupForm"  (ngSubmit)="registerUser(signupForm.value)" >
+
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [formControl]="signupForm.controls['Username']" name="Username"  [(ngModel)]="Username"  required></ion-input>
+      <div class="alert alert-danger" *ngIf="!signupForm.controls['Username'].valid">required.</div>
+
+    </ion-item>
+
+
+      <ion-item>
+        <ion-label>Password</ion-label>
+     <ion-input type="password"  [formControl]="signupForm.controls['password']" name="password" [(ngModel)]="password" required></ion-input>
+        <div class="alert alert-danger" *ngIf="!signupForm.controls['password'].valid">required.</div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" [formControl]="signupForm.controls['firstName']" name ="firstName" [(ngModel)]="firstName" required></ion-input>
+      <div class="alert alert-danger" *ngIf="!signupForm.controls['firstName'].valid">required.</div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-input type="text" name ="lastName" [formControl]="signupForm.controls['lastName']" [(ngModel)]="lastName" required></ion-input>
+      <div class="alert alert-danger" *ngIf="!signupForm.controls['lastName'].valid">required.</div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email"  name ="email" [formControl]="signupForm.controls['email']" [(ngModel)]="email" required></ion-input>
+      <div class="alert alert-danger"  *ngIf="!signupForm.controls['email'].valid">required.</div>
+    </ion-item>
+    <div padding>
+      <button [disabled]="!signupForm.valid" ion-button full >Sign Up</button>
+    </div>
+
+  </form>
+ </ion-list>
+  <div padding>
+    <button (click)="redirectToLogin()" ion-button  >Login</button>
+  </div>
+
+
+</ion-content>

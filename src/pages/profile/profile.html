@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+
+    <!--<img src="https://media.glassdoor.com/sqll/1038687/systematix-squarelogo-1489037590363.png" [hidden]="lastImage != null" imageViewer/>-->
+    <img src="{{lastImage}}" imageViewer/>
+
+    <ion-card-content>
+      <ion-card-title>
+       {{name}}
+      </ion-card-title>
+      <p>
+        Our IT solutions are weaved around your core business goals. We are committed to enhance user experience for you and your clients, and make the entire journey from technology through to customer loyalty - a rewarding experience.      </p>
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon name='musical-notes' item-left style="color: #d03e84"></ion-icon>
+      Albums
+      <ion-badge item-right>9</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='logo-twitter' item-left style="color: #55acee"></ion-icon>
+      Followers
+      <ion-badge item-right>260k</ion-badge>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <button ion-button icon-left (click)="presentActionSheet()">
+        <ion-icon name="camera"></ion-icon>Select Image
+      </button>
+      <button ion-button icon-left (click)="uploadImage(lastImage)" [disabled]="isupload">
+        <ion-icon name="cloud-upload"></ion-icon>Upload
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
